@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    type: proxy
+    author: Gedda
+spec:
+  containers:
+    - name: myngnix
+      image: nginx

@@ -6,7 +6,7 @@ metadata:
     type: appserver
     author: Gedda
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       type: appserver
@@ -19,6 +19,3 @@ spec:
       containers:
         - name: mytomcat
           image: tomee
-          ports:
-            - containerPort: 8080
-              hostPort: 8080
