@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+  labels:
+    type: ci-cd
+    author: Aditya
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: ci-cd
+      author: Gedda
+  template:
+    metadata:
+      name: jenkins-pod
+      labels:
+        type: ci-cd
+        author: Gedda
+    spec:
+      containers:
+        - name: myjenkins
+          image: jenkins/jenkins

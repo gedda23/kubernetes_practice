@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  labels:
+    type: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: database
+      author: Gedda
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        type: database
+        author: Gedda
+    spec:
+      containers:
+        - name: mypostgres
+          image: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              value: adityagedda
+            - name: POSTGRES_USER
+              value: myuser
+            - name: POSTGRES_DB
+              value: mydb
