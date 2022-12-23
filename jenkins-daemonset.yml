@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: jenkins-daemon
+  labels:
+    author: Gedda
+spec:
+  selector:
+    matchLabels:
+      type: ci-cd
+      author: Gedda
+  template:
+    metadata:
+      name: jenkins-pod
+      labels:
+        type: ci-cd
+        author: Gedda
+    spec:
+      containers:
+        - name: myjenkins
+          image: jenkins/jenkins

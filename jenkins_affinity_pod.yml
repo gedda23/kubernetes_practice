@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-pod
+  labels:
+    type: ci-cd
+    author: Gedda
+spec:
+  containers:
+    - name: myjenkins
+      image: jenkins/jenkins
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: slave1
+                operator: In
+                values:
+                  - gedda1
